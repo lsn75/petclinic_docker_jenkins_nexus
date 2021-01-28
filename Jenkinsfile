@@ -17,7 +17,7 @@ pipeline {
     stages {
         stage('Build') { 
             steps {
-                 sh './mvnw package'
+                 sh 'docker build -t jnksmypetclinic .'
             }
         }
     }
