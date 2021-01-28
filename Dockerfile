@@ -2,7 +2,7 @@ FROM maven:3.6.3-openjdk-16-slim AS builder
 
 WORKDIR /petclinic
 
-COPY ./spring-petclinic/ /petclinic
+COPY . /petclinic
 
 RUN mvn package
 
