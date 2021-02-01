@@ -32,7 +32,7 @@ pipeline {
         stage('deploy') {
             agent { label 'remotenode' }
                 steps {
-                    sh "docker login -u ${NEXUS_CREDENTIAL_ID_USR} -p ${NEXUS_CREDENTIAL_ID_PSW}"
+                    //sh "docker login -u ${NEXUS_CREDENTIAL_ID_USR} -p ${NEXUS_CREDENTIAL_ID_PSW}"
                     sh 'docker pull beelesnik/jnksmypetclinic1'
 
                 }
