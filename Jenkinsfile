@@ -16,7 +16,7 @@ pipeline {
     
     stages {
         stage('Build') {
-            agent { label 'remotenode' }
+            agent { label 'localjobs' }
                 steps {
                     sh "echo ${NEXUS_CREDENTIAL_ID_USR}"
                     sh "echo ${NEXUS_CREDENTIAL_ID_PSW}"
@@ -28,5 +28,14 @@ pipeline {
 
                 }
         }
+        
+        stage('deploy') {
+            agent { label 'remotenode' }
+                steps {
+                    sh 'docker run -d -p 80:8080 mypetclinic beelesnik/jnksmypetclinic1:latest'
+
+                }
+        }
+        
     }
 }
