@@ -11,7 +11,7 @@ pipeline {
         // Repository where we will upload the artifact
         NEXUS_REPOSITORY = "maven-snapshots"
         // Jenkins credential id to authenticate to Nexus OSS
-        NEXUS_CREDENTIAL_ID = credentials('nexus-credentials')
+        NEXUS_CREDENTIAL_ID = credentials('dh-credentials')
     }
     
     stages {
@@ -19,10 +19,11 @@ pipeline {
             steps {
                 sh "echo ${NEXUS_CREDENTIAL_ID_USR}"
                 sh "echo ${NEXUS_CREDENTIAL_ID_PSW}"
-                sh 'docker build -t jnksmypetclinic .'
-                sh "docker login -u ${NEXUS_CREDENTIAL_ID_USR} -p ${NEXUS_CREDENTIAL_ID_PSW} http://localhost:8123/"
-                sh 'docker tag  jnksmypetclinic:latest 127.0.0.1:8123/jnksmypetclinic:latest'
-                sh 'docker push 127.0.0.1:8123/jnksmypetclinic:latest'
+                sh 'docker build -t jnksmypetclinic1 .'
+                //sh "(docker login -u ${NEXUS_CREDENTIAL_ID_USR} -p ${NEXUS_CREDENTIAL_ID_PSW} http://localhost:8123/"
+                sh "(docker login -u ${NEXUS_CREDENTIAL_ID_USR} -p ${NEXUS_CREDENTIAL_ID_PSW}"
+                sh 'docker tag  jnksmypetclinic1:latest beelesnik/jnksmypetclinic1:latest'
+                sh 'docker push beelesnik/jnksmypetclinic1:latest'
                 
             }
         }
