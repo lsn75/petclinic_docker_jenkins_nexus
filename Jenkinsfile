@@ -19,8 +19,8 @@ pipeline {
             steps {
                 sh "echo ${NEXUS_CREDENTIAL_ID_USR}"
                 sh "echo ${NEXUS_CREDENTIAL_ID_PSW}"
-                sh 'docker build -t jnksmypetclinic1 .'
-                //sh "(docker login -u ${NEXUS_CREDENTIAL_ID_USR} -p ${NEXUS_CREDENTIAL_ID_PSW} http://localhost:8123/"
+                //sh 'docker build -t jnksmypetclinic1 .'
+                sh "(docker login -u ${NEXUS_CREDENTIAL_ID_USR} -p ${NEXUS_CREDENTIAL_ID_PSW} http://localhost:8123/"
                 //sh "docker login -u ${NEXUS_CREDENTIAL_ID_USR} -p ${NEXUS_CREDENTIAL_ID_PSW}"
                 sh 'docker tag  jnksmypetclinic1:latest 127.0.0.1:8123/jnksmypetclinic1:v12'
                 sh 'docker push 127.0.0.1:8123/jnksmypetclinic1:v12'
