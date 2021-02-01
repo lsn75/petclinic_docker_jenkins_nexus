@@ -19,10 +19,10 @@ pipeline {
     stages {
         stage('Build') { 
             steps {
-                  ecjo ${DU}
-                  echo ${DP}
-                  echo ${NEXUS_CREDENTIAL_ID_USR}
-                  echo ${NEXUS_CREDENTIAL_ID_PSW}
+                  sh "echo ${DU}"
+                  sh "echo ${DP}"
+                  sh "echo ${NEXUS_CREDENTIAL_ID_USR}"
+                  sh "echo ${NEXUS_CREDENTIAL_ID_PSW}"
                  //sh 'docker build -t jnksmypetclinic .'
             }
         }
