@@ -23,7 +23,7 @@ pipeline {
                   //sh "echo ${DP}"
                   sh "echo ${NEXUS_CREDENTIAL_ID_USR}"
                   sh "echo ${NEXUS_CREDENTIAL_ID_PSW}"
-                  sh "docker login -u ${NEXUS_CREDENTIAL_ID_USR} -p ${NEXUS_CREDENTIAL_ID_PSW} http://localhost:8081/"
+                  sh "docker login -u ${NEXUS_CREDENTIAL_ID_USR} -p ${NEXUS_CREDENTIAL_ID_PSW} http://localhost:8123/"
                  //sh 'docker build -t jnksmypetclinic .'
             }
         }
