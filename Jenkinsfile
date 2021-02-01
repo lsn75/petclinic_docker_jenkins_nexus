@@ -12,19 +12,16 @@ pipeline {
         NEXUS_REPOSITORY = "maven-snapshots"
         // Jenkins credential id to authenticate to Nexus OSS
         NEXUS_CREDENTIAL_ID = credentials('nexus-credentials')
-        //DP = credentials('ndp')
-        //DU =  credentials('ndu')
     }
     
     stages {
         stage('Build') { 
             steps {
-                  //sh "echo ${DU}"
-                  //sh "echo ${DP}"
-                  sh "echo ${NEXUS_CREDENTIAL_ID_USR}"
-                  sh "echo ${NEXUS_CREDENTIAL_ID_PSW}"
-                  sh "docker login -u ${NEXUS_CREDENTIAL_ID_USR} -p ${NEXUS_CREDENTIAL_ID_PSW} http://localhost:8123/"
-                 //sh 'docker build -t jnksmypetclinic .'
+                sh "echo ${NEXUS_CREDENTIAL_ID_USR}"
+                sh "echo ${NEXUS_CREDENTIAL_ID_PSW}"
+                sh "docker login -u ${NEXUS_CREDENTIAL_ID_USR} -p ${NEXUS_CREDENTIAL_ID_PSW} http://localhost:8123/"
+                sh 'docker build -t jnksmypetclinic .'
+                
             }
         }
     }
