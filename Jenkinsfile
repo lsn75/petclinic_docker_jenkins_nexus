@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'localjobs' }
+    agent none
 
     environment {
         // This can be nexus3 or nexus2
