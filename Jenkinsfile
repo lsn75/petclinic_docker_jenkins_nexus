@@ -16,7 +16,7 @@ pipeline {
     
     stages {
         stage('Build') {
-            agent { label 'localjobs' }
+            agent { label 'remotenode' }
                 steps {
                     sh "echo ${NEXUS_CREDENTIAL_ID_USR}"
                     sh "echo ${NEXUS_CREDENTIAL_ID_PSW}"
