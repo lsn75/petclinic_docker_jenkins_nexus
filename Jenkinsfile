@@ -17,7 +17,9 @@ pipeline {
     stages {
         stage('Build') { 
             steps {
-                 sh 'docker build -t jnksmypetclinic .'
+                  echo $NEXUS_CREDENTIAL_ID_USR
+                  echo $NEXUS_CREDENTIAL_ID_PSW
+                 //sh 'docker build -t jnksmypetclinic .'
             }
         }
     }
